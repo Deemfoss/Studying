@@ -1,0 +1,29 @@
+﻿@model MayToMay.Models.Student
+@using MayToMay.Models
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit </h2>
+
+ @using (Html.BeginForm())
+ {
+     @Html.HiddenFor(i=>i.Id)
+     <h1>Студент</h1>
+    <div class="dispay-label">Имя</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Name)
+    </div>
+    <div class="dispay-label">Фамилия</div>
+    <div class="display-field">
+        @Html.EditorFor(m => m.Surname)
+    </div>
+    <div class="dispay-label">Курсы</div>
+    
+      foreach (var item in ViewBag.Courses)
+        {
+           <input  type="checkbox" name="selectedCourses" value="@item.id"
+           @(Model.Courses.Contains(item) ? "checked=\"checked\"":"")/> @item.Name <br />                @* смотрим если в данной можели данный курс если есть то помечакм чеккд*@
+        }
+    <p><input  type="submit" value="сохранить"/></p>
+ }

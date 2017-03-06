@@ -1,0 +1,23 @@
+﻿@model MayToMay.Models.Student
+@using MayToMay.Models
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="dispay-label">Имя</div>
+<div class="display-field">
+    @Html.DisplayFor(m => m.Name)
+</div>
+<div class="dispay-label">Фамилия</div>
+<div class="display-field">
+    @Html.DisplayFor(m => m.Surname)
+</div>
+<div class="dispay-label">Курсы</div>
+<ul>
+    @foreach (var item in Model.Courses)
+    {
+        <li>@item.Name</li>
+    }
+</ul>
+ 
